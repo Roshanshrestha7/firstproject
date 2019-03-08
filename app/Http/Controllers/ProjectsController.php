@@ -31,11 +31,11 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id = null)
+    public function create($company_id = null)
     {
         //
 
-        return view('projects.create',['project_id'=>$id]);
+        return view('projects.create',['company_id'=>$company_id]);
     }
 
     /**
@@ -51,7 +51,7 @@ class ProjectsController extends Controller
             $Project = Project::create([
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
-                'project_id' => $request->input('project_id'),
+                'company-id' => $request->input('company_id'),
                 'user_id' => Auth::user()->id
             ]);
             if($Project){
